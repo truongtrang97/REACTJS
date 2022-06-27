@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>component link</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script> 
+    <!-- KHI CÀI react -dom sec cung cấp cho 1 biến global React dom -->
+    <!-- THÊM THƯ VIỆN BABLE VÀO -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+    function Button({title,href,onClick}){
+        //cái tham số nào là function đặt ở cuối cùng
+        
+        let Component='button'
+        const props={}
+
+        if(href){
+        Component='a'
+        props.href=href
+        }
+        if(onClick){
+            props.onClick=onClick //GÁN 1 method cho props bằng giá trị gán ở ngoài vào--> giá trọ nớ đã có ở app
+        } 
+
+        
+        return ( <Component {...props}>{title}</Component>)
+        // dùng toán tử spread để giải các props vào chõ ni tương tự như:  return ( <Component onClick= {onClick}>{title}</Component>)
+    }
+//  xử lý khi click vô thì render ra gì
+   function App(){
+    return(
+        <div id="wapper">
+          <Button 
+          title="Click me!"
+          href="https://fullstack.edu.vn/"
+          onClick={()=>console.log(Math.random())}
+          />       
+        </div>
+    )
+   }
+//  Đoạn trong ni dùng <Form.Input /> -> render ra view  
+// Form[type] đoạn ni đưa vào trong component được nó không hiển thị vi phạm cách trình bày của JSX 
+
+ReactDOM.render(<App />, document.getElementById('root'))
+    </script>
+</body>
+</html>

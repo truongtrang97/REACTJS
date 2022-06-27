@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chilren props</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script> 
+
+    <!-- KHI CÀI react -dom sec cung cấp cho 1 biến global React dom -->
+    <!-- THÊM THƯ VIỆN BABLE VÀO -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function List({data,children}){
+
+            return(
+                <div>
+                <ul>
+                    {data.map(item=>children(item))}
+                </ul>  
+                </div>
+            )
+        }
+        // item phía trên được truyền xuống dưới và vào li(như callback)
+
+        function App(){
+            const cars=['BMJ','HONDA','ZAMAHA']
+            return(
+                <div id="wrapper">
+                    <List data={cars}>{(item)=><li>{item}</li>}</List>
+                </div>
+            )
+        }
+        //  sẽ có lúc boá warming : thiếu key 
+        //  xử lý
+        //         function List({data,children}){
+
+        // return(
+        //     <div>
+        //     <ul>
+        //         {data.map((item,index)=>children(item,index))}
+        //     </ul>  
+        //     </div>
+        // )
+        // }
+        // // item phía trên được truyền xuống dưới và vào li(như callback)
+        // c2: dùng pread,rest viết gọn
+        // +  {data.map((...props)=>children(...props))}
+        // gọn hơn :  {data.map(children)}, nhưng k nên viết
+
+        // function App(){
+        // const cars=['BMJ','HONDA','ZAMAHA']
+        // return(
+        //     <div id="wrapper">
+        //         <List data={cars} >{ (item,index)=><li key={index} >{item}</li>}</List>
+        //     </div>
+        // )
+        // }
+        //  trường hợp không dùng índex
+        //         <List data={cars} >{ (item)=><li key={item} >{item}</li>}</List>
+        // các value của item ni không trùng nhau
+
+ReactDOM.render(<App />, document.getElementById('root'))
+</script>
+</body>
+</html>

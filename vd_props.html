@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vd_props</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script> 
+
+    <!-- KHI CÀI react -dom sec cung cấp cho 1 biến global React dom -->
+    <!-- THÊM THƯ VIỆN BABLE VÀO -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        // đoạn ni là file gốc khi chưa truyền props vào
+// postItem.js
+//         function PostItem(props) {// function ni gọi là component hay react component  < NOTE ĐOẠN NI  htmlFor>
+//             console.log(props)//-->cái ni là 1 object nội sdung của app ở dưới
+//     return (
+//         <div className="post-item">
+//             <label htmlFor="email">Name</label>
+//             <input id="email"/>
+//             <img src="https://files.fullstack.edu.vn/f8-prod/blog_posts/1671/61b6368a3a089.jpg"></img>
+//             <h2 className="post-title">Thời gian và động lực</h2>
+//             <p className="post-desc">Có lẽ cũng rất lâu rồi mà tôi chưa đụng đến thứ được gọi là "timetable". Hay dân dã hơn thì người ta hay gọi là "Lịch thường nhật",...</p>
+//             <p className="post-published">6 tháng trước · 2 phút đọc</p>
+//         </div>// thẻ div ni gọi là react element
+//     )
+// }
+        // đoạn ni đã truyền props
+function PostItem(props) {// function ni gọi là component hay react component  < NOTE ĐOẠN NI  htmlFor>
+            // console.log(props)//-->cái ni là 1 object nội sdung của app ở dưới
+            // xử lý bình thường trong js
+            if(typeof props.callback==='function'){
+            props.callback(Math.random())
+            }
+           //   xem lại đoạn callback ni
+    return (
+        <div className="post-item">
+            <label htmlFor="email">Name</label>
+            <input id="email"/>
+            <img src={props.img}></img>
+            <h2 className="post-title">{props.title}</h2>
+            <p className="post-desc">{props.descript}</p>
+            <p className="post-published">{props.publishal}</p>
+           
+        </div>// thẻ div ni gọi là react element
+    )
+}
+    //    đoạn ni dùng destructuring
+// function PostItem({
+//     img,
+//     title ,
+//     descript ,
+//     publishal ,
+// }
+// ) { 
+//     return (
+//         <div className="post-item">
+//             <label htmlFor="email">Name</label>
+//             <input id="email"/>
+//             <img src={img}></img>
+//             <h2 className="post-title">{title}</h2>
+//             <p className="post-desc">{descript}</p>
+//             <p className="post-published">{publishal}</p>
+           
+//         </div>// thẻ div ni gọi là react element
+//     )
+// }
+
+// app.js => function ni gọi là react component
+
+const app=(
+    // react element
+    //  đoan ni truyền props vào , mục đích truyền đối số vô postItem thâu
+    <div className="posts-list"> 
+       <PostItem 
+       title="1 Thời gian và động lực"
+       img="https://files.fullstack.edu.vn/f8-prod/blog_posts/1671/61b6368a3a089.jpg"
+       descript="1 Có lẽ cũng rất lâu rồi mà tôi chưa đụng đến thứ được gọi là 'timetable'. Hay dân dã hơn thì người ta hay gọi là 'Lịch thường nhật'"
+       publishal = "1 6 tháng trước · 2 phút đọc"
+       callback ={(random)=>{
+       console.log("random:",random)
+       }
+       } //--> truyền function ni 
+       //    chỗ ni có thể data={[{},{}]}--> có thể truyền kiểu dữ liệu gì cũng dk nha
+       
+       />
+       <PostItem 
+       title="2 Thời gian và động lực"
+       img="https://files.fullstack.edu.vn/f8-prod/blog_posts/1671/61b6368a3a089.jpg"
+       descript="2 Có lẽ cũng rất lâu rồi mà tôi chưa đụng đến thứ được gọi là 'timetable'. Hay dân dã hơn thì người ta hay gọi là 'Lịch thường nhật'"
+       publishal = "2 6 tháng trước · 2 phút đọc"
+       
+       />
+       <PostItem 
+       title=" 3 Thời gian và động lực"
+       img="https://files.fullstack.edu.vn/f8-prod/blog_posts/1671/61b6368a3a089.jpg"
+       descript=" 3 Có lẽ cũng rất lâu rồi mà tôi chưa đụng đến thứ được gọi là 'timetable'. Hay dân dã hơn thì người ta hay gọi là 'Lịch thường nhật'"
+       publishal = " 3 6 tháng trước · 2 phút đọc"
+       
+       />
+    
+    </div>
+)
+// index.js
+ReactDOM.render(app, document.querySelector('#root'))
+</script>
+</body>
+</html>

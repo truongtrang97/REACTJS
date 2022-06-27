@@ -1,0 +1,29 @@
+{
+  "name": "react_app",
+  "version": "1.0.0",
+  "description": "1. CREATE REACT APP\r     1. NODEJS\r     - nodejs là javasript runtime =>khi cài nodejs tạo ra môi trường độc lập để thực thi javasript (như trình duyệt)\r     - nodejs ni sử dụng chrome's V8 javasript engine(đk phát triển từ google)\r     - nodejs tạo ra máy chủ web\r     - nodejs có npm : có thư viện giải quyết nhiều vấn đề thường lặp đi lặp lại  < vd như không cần link file  như trk nữa ...>\r     - nodejs có rất nhiều thư viện như react, reactdom, webpack(thư viện ni là thư viện chia nhỏ)\r     - cài nodejs nhớ kiểm tra npm -v, npx -v : xem cài đặt chưa , cần cái ni\r     2. Tạo dự án với React + Webpack\r     => cái ni để hình dung được react app được xây dựng ntn\r     + webpack giúp module hoá ứng dụng frontend ra-> khi có cấu trúc phù hợp thì quản lý file hiệu quả\r     - campage lại -> mini file tối ưu sản phầm khi explore lên expression (?) \r     ```\r       + Cấu trúc dự án\r       react-webpack -> thư mục gốc\r        |src-> thư mục chứa sources code chính\r           |component: thư mục chứa component\r           | index.js : file khởi tạo, render App vào #root\r        | public\r           | index.html: chứa HTML page, nơi chứa #root element \r     ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.2"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

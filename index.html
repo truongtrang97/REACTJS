@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script> 
+
+    <!-- KHI CÀI react -dom sec cung cấp cho 1 biến global React dom -->
+    <!-- THÊM THƯ VIỆN BABLE VÀO -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        const postitem = React.createElement(
+        'div',
+        {
+        className:'postitem'
+        },
+        React.createElement(
+            'h2',
+            {
+                title:'Học React tại F8'
+
+            },
+            'Học Reactjs'
+        ),
+        React.createElement('p',{},'Học React cơ bản đến nc' )
+        )
+        console.log(postitem)
+        // get root element
+        const root =document.getElementById('root')
+        // React-DOM-> render UI
+        ReactDOM.render(postitem,root)
+        // lỗi
+        // react-dom.development.js: 73 Cảnh báo: ReactDOM.render không còn được hỗ trợ trong React 18. Thay vào đó, hãy sử dụng createRoot. Cho đến khi bạn chuyển sang API mới, ứng dụng của bạn sẽ hoạt động như thể đang chạy React 17. Tìm hiểu thêm: https://reactjs.org/link/switch-to-createroot
+        // đã đổi link của f8
+        // phiên bản 18
+        //const containers =document.getElementById('root')
+        // const root =ReactDOM.createRoot((postitem)
+        // root.render(postitem)
+
+        // bt ul-li
+        const ul=React.createElement(
+            'ul',
+            null,
+            React.createElement('li',null,'Javascript'),
+            React.createElement('li',null,'reactjs'),
+        )
+        ReactDOM.render(ul,document.getElementById('root'))
+        //  dùng thư viện bable
+        // note bình thường type='text/javascript' sẽ thực thi như js
+        // <script type="text/bable">//cái ni không thực thi theo JS
+        // const ul=<ul>
+        //     <li>Javascript<li>
+        //     <li>lap trinh f8<li>
+        //     <ul>
+        // <script>   
+        
+        
+
+    
+
+    </script>
+</body>
+</html>

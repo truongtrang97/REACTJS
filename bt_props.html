@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BT_props</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script> 
+
+    <!-- KHI CÀI react -dom sec cung cấp cho 1 biến global React dom -->
+    <!-- THÊM THƯ VIỆN BABLE VÀO -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function PostItem() {// function ni gọi là component hay react component  < NOTE ĐOẠN NI  htmlFor>
+    return (
+        <div className="post-item">
+            <label htmlFor="email">Name</label>
+            <input id="email"/>
+            <img src="https://files.fullstack.edu.vn/f8-prod/blog_posts/1671/61b6368a3a089.jpg"></img>
+            <h2 className="post-title">Thời gian và động lực</h2>
+            <p className="post-desc">Có lẽ cũng rất lâu rồi mà tôi chưa đụng đến thứ được gọi là "timetable". Hay dân dã hơn thì người ta hay gọi là "Lịch thường nhật",...</p>
+            <p className="post-published">6 tháng trước · 2 phút đọc</p>
+        </div>// thẻ div ni gọi là react element
+    )
+}
+// app.js => function ni gọi là react component
+
+function App() {
+    return (
+    <div id="wapper"> 
+        <PostItem />
+        <PostItem />
+        <PostItem />
+
+    </div>
+    )}
+// const app=(
+//     // react element
+//     <div className="posts-list"> 
+//        <PostItem />
+//        <PostItem />
+//        <PostItem />
+
+//     </div>
+// )
+// cái đoạn ni là JSX -> RENDER RA BT THÂU 
+ReactDOM.render(<App />, document.getElementById('root'))
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BT</title>
+    <script crossorigin src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"></script> 
+
+    <!-- KHI CÀI react -dom sec cung cấp cho 1 biến global React dom -->
+    <!-- THÊM THƯ VIỆN BABLE VÀO -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const courses = [
+            {
+                name : 'HTML, CSS'
+            },
+            {
+                name : 'JS'
+            },
+            {
+                name : 'Reactjs'
+            }
+        ]
+        const jsx=(
+            <ul>
+               {courses.map((course,índex)=>
+                <li key={índex}>{course.name}</li>
+               )}
+            </ul>
+        )
+        ReactDOM.render(jsx,document.getElementById('root'))
+        //  mot so loi sai : k có dấu , chỗ const jsx ( k bị lỗi á)-- vz đóng thẻ nữa
+
+        
+      
+
+        
+
+    </script>
+</body>
+</html>
